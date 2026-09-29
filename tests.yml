@@ -1,0 +1,18 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python qsafe.py selftest
+      - run: python test_qsafe.py
+      - run: python make_demo_app.py
+      - run: python qsafe.py scan demo_vulnerable_app --out ci_report

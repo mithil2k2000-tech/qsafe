@@ -1,0 +1,1 @@
+cryptography>=50.0   # needs built-in ML-KEM / ML-DSA support

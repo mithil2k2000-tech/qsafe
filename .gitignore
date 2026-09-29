@@ -1,0 +1,22 @@
+# Never commit private keys or secrets
+*.key
+*.key.tmp
+*.qsafe
+*.partial
+.env
+
+# Demo project contains throwaway private keys - regenerate with make_demo_app.py
+demo_vulnerable_app/
+
+# Python / tools
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Scan output (sample kept in examples/)
+quantum_readiness_report.*
+*_report.md
+*_report.csv
+*_report.json
+!examples/*_report.*
